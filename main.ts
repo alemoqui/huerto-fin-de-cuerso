@@ -1,5 +1,8 @@
 let lectura = 0
 basic.forever(function () {
+    radio.setGroup(123456789123456780)
+})
+basic.forever(function () {
     lectura = pins.digitalReadPin(DigitalPin.P0)
     led.plotBarGraph(
     lectura,
@@ -8,5 +11,7 @@ basic.forever(function () {
     if (input.buttonIsPressed(Button.A)) {
         basic.clearScreen()
         basic.pause(100)
+        basic.showNumber(lectura)
+        radio.sendNumber(lectura)
     }
 })
